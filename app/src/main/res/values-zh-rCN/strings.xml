@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">GTUpdate</string>
+
+    <string name="updating_message_formate">发现一个升级包 : \'%1$s\'. 是否要安装升级包?</string>
+    <string name="updating_button_install">升级</string>
+    <string name="updating_button_cancel">放弃</string>
+    <string name="screen_file_same">屏参文件一致，不刷新屏参</string>
+    <string name="updating">正在升级，请稍后...</string>
+    <string name="checking">正在校验固件，请稍后...</string>
+    <string name="checkout_zip_fail">固件校验失败，请确认固件无误</string>
+    <string name="confirm">确认</string>
+    <string name="IFIA_btn_yes">是</string>
+    <string name="IFIA_btn_no">否</string>
+    <string name="update_success">恭喜升级成功!</string>
+    <string name="update_failed">对不起升级失败!</string>
+    <string name="ask_delete_package">是否删除升级包？如果不删除，系统可能再次提示升级，可能会给您带来不便！</string>
+</resources>

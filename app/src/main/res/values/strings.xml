@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">GTUpdate</string>
+
+    <string name="updating_message_formate">A update package file is found : \'%1$s\'. Would you like to install the package?</string>
+    <string name="updating_button_install">Update</string>
+    <string name="updating_button_cancel">Cancel</string>
+    <string name="screen_file_same">The screen file is same,don not update</string>
+    <string name="updating">Updating now,please wait...</string>
+    <string name="checking">Checking now,please wait...</string>
+    <string name="checkout_zip_fail">Firmware verification failed, please make sure that the firmware is correct</string>
+    <string name="confirm">Confirm</string>
+    <string name="IFIA_btn_yes">Yes</string>
+    <string name="IFIA_btn_no">No</string>
+    <string name="ask_delete_package">Do you want to delete the file? If not,the system may propose this update again.</string>
+    <string name="update_success">Congratulation upgrade succeed!</string>
+    <!--  changed -->
+    <string name="update_failed">Firmware update failed!</string>
+</resources>

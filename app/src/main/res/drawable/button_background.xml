@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true" >
+       <shape>
+           <solid android:color="#3de6b6" />
+           <stroke android:width="0.8dp" android:color="#7c7a7a" />
+           <corners android:topLeftRadius="3dp"
+               android:topRightRadius="3dp"
+               android:bottomRightRadius="3dp"
+               android:bottomLeftRadius="3dp"/>
+       </shape>
+    </item>
+
+    <item android:state_focused="true" >
+        <shape>
+            <solid android:color="#3de6b6" />
+            <stroke android:width="0.8dp" android:color="#7c7a7a" />
+            <corners android:topLeftRadius="3dp"
+                android:topRightRadius="3dp"
+                android:bottomRightRadius="3dp"
+                android:bottomLeftRadius="3dp"/>
+        </shape>
+    </item>
+
+    <item android:state_pressed="true" >
+        <shape>
+            <solid android:color="#3de6b6" />
+            <stroke android:width="0.8dp" android:color="#7c7a7a" />
+            <corners android:topLeftRadius="3dp"
+                android:topRightRadius="3dp"
+                android:bottomRightRadius="3dp"
+                android:bottomLeftRadius="3dp"/>
+        </shape>
+    </item>
+
+    <item >
+        <shape>
+            <solid android:color="#3de6b6" />
+            <corners android:topLeftRadius="3dp"
+                android:topRightRadius="3dp"
+                android:bottomRightRadius="3dp"
+                android:bottomLeftRadius="3dp"/>
+        </shape>
+    </item>
+
+</selector>

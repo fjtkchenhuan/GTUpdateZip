@@ -5,13 +5,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.util.Log;
 
 import java.io.File;
+import java.io.IOException;
 
 public class GTUpdateReceiver extends BroadcastReceiver {
     private static final String TAG = "GTUpdateReceiver";
     private static final String GTUPGRADE = "update.zip";
+    private static final String OTG_AND_HOST_SWITCH = "SwitchOtgAndHost.txt";
     private Context context;
     private String path;
     SharedPreferences sharedPreferences;
@@ -31,7 +34,7 @@ public class GTUpdateReceiver extends BroadcastReceiver {
             path = intent.getData().getPath();
             Log.d(TAG, "path = " + path);
 
-            handler.postDelayed(findPath, 5000);
+            handler.postDelayed(findPath, 2000);
         } else if ("android.intent.action.YS_UPDATE_FIRMWARE".equals(action)) {
             String path = intent.getStringExtra("img_path");
 
@@ -70,6 +73,32 @@ public class GTUpdateReceiver extends BroadcastReceiver {
                 intent.putExtra("binpath", a.getPath());
                 intent.putExtra("showDialog",true);
                 context.startActivity(intent);
+            } else if (a.getAbsolutePath().contains(OTG_AND_HOST_SWITCH)) {
+                 String otgStatus = Utils.getValueFromProp("persist.sys.usb.otg.mode");
+                 if ("0".equals(otgStatus)) {
+                     Utils.setValueToProp("persist.sys.usb.otg.mode","1");
+                     try {
+                         Utils.writeIntFile("1","/sys/devices/soc/soc:misc_power_en/otg");
+                         SystemClock.sleep(1000);
+                         Utils.writeIntFile("1","/sys/devices/soc/soc:misc_power_en/otg_pwr");
+                     } catch (IOException e) {
+                         e.printStackTrace();
+                     } catch (InterruptedException e) {
+                         e.printStackTrace();
+                     }
+                 }else {
+                     Utils.setValueToProp("persist.sys.usb.otg.mode","0");
+                     try {
+                         Utils.writeIntFile("0","/sys/devices/soc/soc:misc_power_en/otg_pwr");
+                         Utils.writeIntFile("0","/sys/devices/soc/soc:misc_power_en/otg");
+                     } catch (IOException e) {
+                         e.printStackTrace();
+                     } catch (InterruptedException e) {
+                         e.printStackTrace();
+                     }
+
+                 }
+
             }
         }
     }
